@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outfique Wardrobe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Great+Vibes&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f75088;
+            --peach: #f9a6a1;
+            --light: rgba(255, 255, 255, 0.9);
+            --shadow: rgba(0, 0, 0, 0.1);
+            --glass: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .welcome-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .welcome-left {
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .welcome-right {
+            animation: slideInRight 0.8s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-text h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: var(--glass);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .feature:nth-child(1) { animation-delay: 0.2s; }
+        .feature:nth-child(2) { animation-delay: 0.3s; }
+        .feature:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: white;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 220px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+            height: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Quick Guide Modal */
+        .guide-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .guide-modal.show {
+            display: flex;
+        }
+
+        .guide-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .guide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .guide-header h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .close-guide {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s ease;
+        }
+
+        .close-guide:hover {
+            color: var(--primary);
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .step-content p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .guide-footer {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .guide-footer button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-start {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-start:hover {
+            background: var(--secondary);
+        }
+
+        .btn-remind {
+            background: #f0f0f0;
+            color: var(--primary);
+        }
+
+        .btn-remind:hover {
+            background: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            h2 {
+                font-size: 36px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.tall {
+                grid-row: span 1;
+            }
+
+            .guide-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <!-- Left Section -->
+        <div class="welcome-left">
+            <div class="logo-section">
+                <img src="DESIGN NI JARED.png" alt="Outfique Logo" class="logo-img" />
+                <div class="logo-text">
+                    <h1>Outfique</h1>
+                    <p>Style Studio</p>
+                </div>
+            </div>
+
+            <h2>Your Personal AI Wardrobe</h2>
+            
+            <p class="subtitle">
+                Capture your clothing, get AI-powered suggestions, and build outfits that match your personal style. All in one intelligent wardrobe system.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">📷</span>
+                    <span class="feature-text">Capture real clothes with your camera</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🤖</span>
+                    <span class="feature-text">AI learns your style and generates ideas</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">👗</span>
+                    <span class="feature-text">Build and save daily outfits instantly</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="wardrobe.html" class="btn btn-primary">→ Open Wardrobe</a>
+                <button class="btn btn-secondary" onclick="openGuide()">? Quick Guide</button>
+            </div>
+
+            <div class="nav-links">
+                <a href="about outfique.html">About Us</a>
+                <a href="team.html">Our Team</a>
+                <a href="#" onclick="openGuide(); return false;">How it Works</a>
+            </div>
+        </div>
+
+        <!-- Right Section: Gallery -->
+        <div class="welcome-right">
+            <div class="gallery">
+                <div class="gallery-item tall">
+                    <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80" alt="Fashion look" />
+                    <span class="gallery-label">Style</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Urban style" />
+                    <span class="gallery-label">Capture</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Casual wear" />
+                    <span class="gallery-label">Create</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Guide Modal -->
+    <div id="guideModal" class="guide-modal">
+        <div class="guide-content">
+            <div class="guide-header">
+                <h3>✨ Quick Start Guide</h3>
+                <button class="close-guide" onclick="closeGuide()">×</button>
+            </div>
+
+            <div class="guide-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Create Your Account</h4>
+                        <p>Sign up with a username and password to get started.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Capture Your Clothes</h4>
+                        <p>Use the camera button to photograph your real clothing items. The system auto-categorizes them.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>View Your Wardrobe</h4>
+                        <p>See all your clothes organized by type: hats, shirts, pants, and boots.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Generate New Ideas</h4>
+                        <p>AI learns from your captured items and generates new clothing suggestions that match your style.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Build Daily Outfits</h4>
+                        <p>Mix and match items to create outfits for the day. Save your favorite combinations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-footer">
+                <button class="btn-start" onclick="goToWardrobe()">Get Started!</button>
+                <button class="btn-remind" onclick="closeGuide()">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openGuide() {
+            document.getElementById('guideModal').classList.add('show');
+        }
+
+        function closeGuide() {
+            document.getElementById('guideModal').classList.remove('show');
+        }
+
+        function goToWardrobe() {
+            window.location.href = 'wardrobe.html';
+        }
+
+        // Auto-open guide on first visit (optional)
+        window.addEventListener('load', () => {
+            const hasVisited = localStorage.getItem('outfiqueVisited');
+            if (!hasVisited) {
+                setTimeout(() => {
+                    openGuide();
+                    localStorage.setItem('outfiqueVisited', 'true');
+                }, 500);
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('guideModal').addEventListener('click', (e) => {
+            if (e.target.id === 'guideModal') {
+                closeGuide();
+            }
+        });
+    </script>
+</body>
+</html>
