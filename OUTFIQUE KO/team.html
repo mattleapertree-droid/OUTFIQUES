@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outfique Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="team-container">
+    <header class="about-header">
+      <div class="logo-wrap">
+        <img src="DESIGN NI JARED.png" alt="Outfique logo">
+        <div>
+          <h1>Outfique</h1>
+        </div>
+      </div>
+
+      <nav class="about-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="wardrobe.html">Wardrobe</a>
+      </nav>
+    </header>
+
+    <section class="team-header">
+      <h2>Meet the Outfique Team</h2>
+      <p>
+        A passionate group of students working together to create
+        a smarter way to manage your wardrobe and express your style.
+      </p>
+    </section>
+
+    <section class="team-grid">
+      <div class="team-card">
+        <div class="team-card-image">👩</div>
+        <div class="team-card-body">
+          <h3>Lead Developer</h3>
+          <div class="role">Full Stack Engineer</div>
+          <p>Builds the core application architecture and wardrobe management system</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👩</div>
+        <div class="team-card-body">
+          <h3>UI/UX Designer</h3>
+          <div class="role">Design Lead</div>
+          <p>Creates beautiful interfaces with focus on elegance and accessibility</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👩</div>
+        <div class="team-card-body">
+          <h3>Frontend Developer</h3>
+          <div class="role">React/JavaScript Specialist</div>
+          <p>Develops interactive user interfaces and client-side features</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👨</div>
+        <div class="team-card-body">
+          <h3>Backend Developer</h3>
+          <div class="role">Server & Database Specialist</div>
+          <p>Manages server infrastructure and database optimization</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👩</div>
+        <div class="team-card-body">
+          <h3>Product Manager</h3>
+          <div class="role">Strategy & Vision</div>
+          <p>Guides product vision and feature prioritization</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👩</div>
+        <div class="team-card-body">
+          <h3>Marketing Lead</h3>
+          <div class="role">Brand & Growth Strategist</div>
+          <p>Develops marketing strategies and brand positioning</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👨</div>
+        <div class="team-card-body">
+          <h3>QA Tester</h3>
+          <div class="role">Quality Assurance Specialist</div>
+          <p>Ensures application reliability and user experience quality</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-image">👨</div>
+        <div class="team-card-body">
+          <h3>DevOps Engineer</h3>
+          <div class="role">Infrastructure & Deployment</div>
+          <p>Manages cloud infrastructure and continuous deployment</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 id="team-mission">Our Mission</h2>
+      <p>
+        We believe that managing your wardrobe should be as enjoyable as wearing beautiful clothes.
+        Outfique brings together technology and fashion to help you organize, plan, and discover your personal style.
+      </p>
+    </section>
+
+    <div class="actions team-actions">
+      <a class="btn btn-secondary" href="index.html">← Back Home</a>
+      <a class="btn btn-primary" href="wardrobe.html">Open Wardrobe →</a>
+    </div>
+
+    <footer>
+      &copy; 2026 Outfique. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
+
+          <div class="outfit-slot" data-category="boots">
+            <div class="slot-label">Boots / Shoes</div>
+            <div class="slot-content" id="dailyBoots"><div class="empty-slot">No shoes selected</div></div>
+            <button class="select-from-drawer-btn" data-category="boots" type="button">Select from Wardrobe</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="generation-panel">
+        <h2>Add to Wardrobe</h2>
+
+        <div class="form-group">
+          <label for="itemStyle">Style</label>
+          <select id="itemStyle">
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="vintage">Vintage</option>
+            <option value="modern" selected>Modern</option>
+            <option value="streetwear">Streetwear</option>
+            <option value="bohemian">Bohemian</option>
+            <option value="minimalist">Minimalist</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="itemDescription">Description</label>
+          <input type="text" id="itemDescription" placeholder="Example: beige formal blouse">
+        </div>
+
+        <button id="generateBtn" class="btn-primary full-width" type="button">Generate Item</button>
+        <div id="messageArea" class="status-message"></div>
+      </aside>
+    </div>
+
+    <section class="category-section">
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="hat" type="button">Hat</button>
+        <button class="category-tab" data-category="shirt" type="button">Shirt</button>
+        <button class="category-tab" data-category="pants" type="button">Pants / Shorts</button>
+        <button class="category-tab" data-category="boots" type="button">Boots / Shoes</button>
+      </div>
+
+      <div class="drawer-panel">
+        <div class="drawer-header">
+          <h2 id="drawerTitle">Hat Drawer</h2>
+        </div>
+        <div id="wardrobeGrid" class="wardrobe-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal hidden" id="editModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeEditModal" type="button">&times;</button>
+      <h3>Edit Item</h3>
+
+      <div class="form-group">
+        <label for="editStyle">Update Style</label>
+        <select id="editStyle">
+          <option value="casual">Casual</option>
+          <option value="formal">Formal</option>
+          <option value="vintage">Vintage</option>
+          <option value="modern">Modern</option>
+          <option value="streetwear">Streetwear</option>
+          <option value="bohemian">Bohemian</option>
+          <option value="minimalist">Minimalist</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="editDescription">Update Description</label>
+        <input type="text" id="editDescription" placeholder="Updated description">
+      </div>
+
+      <button id="saveEditBtn" class="btn-primary full-width" type="button">Save Changes</button>
+    </div>
+  </div>
+
+  <script src="wardrobe.js"></script>
+  <script src="wardrobe-smart-upgrade.js"></script>
+</body>
+</html>

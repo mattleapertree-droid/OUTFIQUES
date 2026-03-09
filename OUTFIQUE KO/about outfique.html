@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outfique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#f7eee7;
+      --bg-2:#ead7c9;
+      --rose:#d88e8f;
+      --gold:#d8a35d;
+      --brown:#6f4f42;
+      --text:#4d3c34;
+      --white:rgba(255,255,255,.86);
+      --shadow:0 14px 40px rgba(111,79,66,.16);
+      --line:rgba(111,79,66,.12);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,sans-serif;
+      min-height:100vh;
+      color:var(--text);
+      background:
+        linear-gradient(rgba(247,238,231,.88), rgba(247,238,231,.88)),
+        url("DESIGN NI JARED.png") center/cover no-repeat fixed;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 28px;
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,.35);
+      border-bottom:1px solid var(--line);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand img{
+      width:58px;
+      height:58px;
+      object-fit:cover;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+
+    .brand-text h1{
+      font-family:"Great Vibes",cursive;
+      font-size:42px;
+      color:var(--rose);
+      line-height:1;
+    }
+
+    .brand-text p{
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brown);
+    }
+
+    nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--brown);
+      font-weight:600;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+    }
+
+    main{
+      flex:1;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+      padding:48px 28px;
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+    }
+
+    .hero-card,
+    .auth-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      padding:34px;
+      -webkit-backdrop-filter:blur(12px);
+      backdrop-filter:blur(12px);
+    }
+
+    .hero-card h2{
+      font-family:"Playfair Display",serif;
+      font-size:52px;
+      line-height:1.08;
+      margin-bottom:18px;
+      color:#5c463d;
+    }
+
+    .hero-card h2 span{color:var(--rose)}
+    .hero-card p{
+      font-size:17px;
+      line-height:1.8;
+      margin-bottom:24px;
+      max-width:60ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:22px;
+    }
+
+    .btn{
+      border:none;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      border-radius:999px;
+      padding:14px 22px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold),var(--rose));
+      color:#fff;
+      box-shadow:0 10px 24px rgba(216,163,93,.25);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--brown);
+      border:1px solid var(--line);
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .feature{
+      background:rgba(255,255,255,.62);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+    }
+
+    .feature h3{
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .feature p{
+      font-size:13px;
+      line-height:1.6;
+      margin:0;
+    }
+
+    .auth-card h3{
+      font-family:"Playfair Display",serif;
+      font-size:30px;
+      margin-bottom:18px;
+    }
+
+    .tabs{
+      display:flex;
+      gap:10px;
+      margin-bottom:18px;
+    }
+
+    .tab{
+      flex:1;
+      padding:12px 14px;
+      border:none;
+      border-radius:16px;
+      background:#f3e7df;
+      color:var(--brown);
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .tab.active{
+      background:linear-gradient(135deg,var(--gold),var(--rose));
+      color:#fff;
+    }
+
+    .auth-form{display:none}
+    .auth-form.active{display:block}
+
+    .form-group{
+      margin-bottom:14px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:7px;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    input{
+      width:100%;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      outline:none;
+      font-size:15px;
+      background:#fff;
+    }
+
+    .full-btn{
+      width:100%;
+      margin-top:8px;
+    }
+
+    .terms{
+      font-size:13px;
+      line-height:1.6;
+      margin-top:14px;
+      color:#6e5a4f;
+    }
+
+    .terms a{
+      color:var(--rose);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .message{
+      min-height:22px;
+      font-size:14px;
+      margin-top:12px;
+      font-weight:600;
+    }
+
+    .message.error{color:#b43b3b}
+    .message.success{color:#2a7a4d}
+
+    @media (max-width: 900px){
+      main{
+        grid-template-columns:1fr;
+      }
+      .hero-card h2{
+        font-size:42px;
+      }
+    }
+
+    @media (max-width: 640px){
+      header{
+        flex-direction:column;
+        gap:14px;
+      }
+      .hero-card,
+      .auth-card{
+        padding:24px;
+      }
+      .hero-card h2{
+        font-size:34px;
+      }
+      .features{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <img src="DESIGN NI JARED.png" alt="Outfique logo">
+        <div class="brand-text">
+          <h1>Outfique</h1>
+          <p>Smart Wardrobe</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="about outfique.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="wardrobe.html">Wardrobe</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-card">
+        <h2>Style your <span>smart wardrobe</span> with elegance.</h2>
+        <p>
+          Outfique helps you capture your clothes, organize them into categories,
+          build daily outfits, and generate ideas based on your saved style.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="wardrobe.html">Open Wardrobe</a>
+          <a class="btn btn-secondary" href="team.html">Meet the Team</a>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <h3>Camera Capture</h3>
+            <p>Save clothing items directly into your personal wardrobe drawers.</p>
+          </div>
+          <div class="feature">
+            <h3>4 Categories</h3>
+            <p>Organize items under Hat, Shirt, Pants, and Boots.</p>
+          </div>
+          <div class="feature">
+            <h3>Daily Outfit</h3>
+            <p>Build a look by choosing one item per category.</p>
+          </div>
+          <div class="feature">
+            <h3>AI Style Prompting</h3>
+            <p>Generate ideas influenced by the wardrobe pieces you already saved.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <h3>Login or Create Account</h3>
+
+        <div class="tabs">
+          <button class="tab active" id="loginTab" type="button">Login</button>
+          <button class="tab" id="signupTab" type="button">Sign Up</button>
+        </div>
+
+        <div class="auth-form active" id="loginForm">
+          <div class="form-group">
+            <label for="loginUsername">Username</label>
+            <input id="loginUsername" type="text" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" type="password" placeholder="Enter password">
+          </div>
+          <button class="btn btn-primary full-btn" id="loginBtn" type="button">Login</button>
+        </div>
+
+        <div class="auth-form" id="signupForm">
+          <div class="form-group">
+            <label for="signupUsername">Username</label>
+            <input id="signupUsername" type="text" placeholder="Choose a username">
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input id="signupEmail" type="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" type="password" placeholder="Create password">
+          </div>
+          <div class="form-group">
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <input id="signupConfirmPassword" type="password" placeholder="Repeat password">
+          </div>
+          <button class="btn btn-primary full-btn" id="signupBtn" type="button">Create Account</button>
+
+          <div class="terms">
+            By signing up, you agree to use this project responsibly.
+          </div>
+        </div>
+
+        <div class="message" id="authMessage"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="wardrobe.js"></script>
+</body>
+</html>

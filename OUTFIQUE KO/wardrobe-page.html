@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outfique Wardrobe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wardrobe-container">
+    <header class="wardrobe-header">
+      <div class="brand">
+        <img src="DESIGN NI JARED.png" alt="Outfique logo" class="brand-logo">
+        <div>
+          <h1>Outfique Wardrobe</h1>
+          <span id="username"></span>
+        </div>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="header-link">Home</a>
+        <a href="about.html" class="header-link">About</a>
+        <a href="team.html" class="header-link">Team</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="logoutBtn" class="btn-secondary" type="button">Logout</button>
+      </div>
+    </header>
+
+    <div class="wardrobe-main">
+      <section class="daily-outfit-section">
+        <div class="daily-outfit-header">
+          <h2>Today's Outfit</h2>
+          <button id="saveDailyOutfitBtn" class="btn-primary" type="button">Save Today's Look</button>
+        </div>
+
+        <div class="daily-outfit-display">
+          <div class="outfit-slot" data-category="hat">
+            <div class="slot-label">Hat</div>
+            <div class="slot-content" id="dailyHat"><div class="empty-slot">No hat selected</div></div>
+            <button class="select-from-drawer-btn" data-category="hat" type="button">Select from Wardrobe</button>
+          </div>
+
+          <div class="outfit-slot" data-category="shirt">
+            <div class="slot-label">Shirt</div>
+            <div class="slot-content" id="dailyShirt"><div class="empty-slot">No shirt selected</div></div>
+            <button class="select-from-drawer-btn" data-category="shirt" type="button">Select from Wardrobe</button>
+          </div>
+
+          <div class="outfit-slot" data-category="pants">
+            <div class="slot-label">Pants / Shorts</div>
+            <div class="slot-content" id="dailyPants"><div class="empty-slot">No pants selected</div></div>
+            <button class="select-from-drawer-btn" data-category="pants" type="button">Select from Wardrobe</button>
+          </div>
+
+          <div class="outfit-slot" data-category="boots">
+            <div class="slot-label">Boots / Shoes</div>
+            <div class="slot-content" id="dailyBoots"><div class="empty-slot">No shoes selected</div></div>
+            <button class="select-from-drawer-btn" data-category="boots" type="button">Select from Wardrobe</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="generation-panel">
+        <h2>Add to Wardrobe</h2>
+
+        <div class="form-group">
+          <label for="itemStyle">Style</label>
+          <select id="itemStyle">
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="vintage">Vintage</option>
+            <option value="modern" selected>Modern</option>
+            <option value="streetwear">Streetwear</option>
+            <option value="bohemian">Bohemian</option>
+            <option value="minimalist">Minimalist</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="itemDescription">Description</label>
+          <input type="text" id="itemDescription" placeholder="Example: beige formal blouse">
+        </div>
+
+        <button id="generateBtn" class="btn-primary full-width" type="button">Generate Item</button>
+        <div id="messageArea" class="status-message"></div>
+      </aside>
+    </div>
+
+    <section class="category-section">
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="hat" type="button">Hat</button>
+        <button class="category-tab" data-category="shirt" type="button">Shirt</button>
+        <button class="category-tab" data-category="pants" type="button">Pants / Shorts</button>
+        <button class="category-tab" data-category="boots" type="button">Boots / Shoes</button>
+      </div>
+
+      <div class="drawer-panel">
+        <div class="drawer-header">
+          <h2 id="drawerTitle">Hat Drawer</h2>
+        </div>
+        <div id="wardrobeGrid" class="wardrobe-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal hidden" id="editModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeEditModal" type="button">&times;</button>
+      <h3>Edit Item</h3>
+
+      <div class="form-group">
+        <label for="editStyle">Update Style</label>
+        <select id="editStyle">
+          <option value="casual">Casual</option>
+          <option value="formal">Formal</option>
+          <option value="vintage">Vintage</option>
+          <option value="modern">Modern</option>
+          <option value="streetwear">Streetwear</option>
+          <option value="bohemian">Bohemian</option>
+          <option value="minimalist">Minimalist</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="editDescription">Update Description</label>
+        <input type="text" id="editDescription" placeholder="Updated description">
+      </div>
+
+      <button id="saveEditBtn" class="btn-primary full-width" type="button">Save Changes</button>
+    </div>
+  </div>
+
+  <script src="wardrobe-smart-upgrade.js"></script>
+  <script src="server.js"></script>
+</body>
+</html>
